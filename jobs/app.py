@@ -14,14 +14,6 @@ def open_connection():
     setattr(connection, row_factory, sqlite3.Row)
     return connection
 
-def execute_sql():
-
-
-@app.teardown_appcontext
-def close_connetion(exeption):
-    connection = getattr(g, '_connection', None)
-    if connection != None:
-        connection.close()
 
 
 @app.route('/')
