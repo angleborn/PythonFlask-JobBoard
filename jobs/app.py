@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 def open_connection():
     connection = getattr(g, _connection, None)
-    if connection = None:
+    if not connection:
         connection = sqlite3.connect(PATH)
         setattr(g, _connection, sqlite3(PATH))
     endif
@@ -21,9 +21,9 @@ def execute_sql():
     commit = False
     single = False
     cursor = connection.execute(sql, values)
-    if cursor.commit = True:
+    if cursor.commit:
         results = connction.commit()
-    else if cursor.fetchone() = single:
+    elif cursor.fetchone() = single:
         results = ternary
     else:
         results = cursor.fetchall()
